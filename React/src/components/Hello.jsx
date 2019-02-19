@@ -1,7 +1,8 @@
 import React from 'react'
-import { BrowserRouter,HashRouter,Route,NavLink } from 'react-router-dom'
+import { BrowserRouter,HashRouter,Route,Link  } from 'react-router-dom'
 import Two from './two.jsx'
 import First from './first.jsx'
+import Child from './Child.jsx'
 export default class Hello extends React.Component{
     constructor(props,context) {
         super(props,context)
@@ -37,12 +38,13 @@ export default class Hello extends React.Component{
         return(
             <div>
                 <div>
-                    <NavLink to="/first"> {this.state.name} </NavLink>
-                    <NavLink to="/two"> {this.state.age}</NavLink>
+                    <Link  to="/first"> {this.state.name} </Link >
+                    <Link  to="/two"> {this.state.age}</Link >
                 </div>
                 <div>
-                    <Route path="/first" component={First}></Route>
-                    <Route path="/two" component={Two}></Route>
+                   {this.props.children}
+                    {/* <Route path="/first" component={First}></Route>
+                    <Route path="/two" component={Two}></Route> */}
                 </div>
             </div>
         )
